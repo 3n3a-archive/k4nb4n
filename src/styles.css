@@ -66,7 +66,7 @@
 }
 
 .kan-item {
-  @apply rounded bg-gray-300 p-4 dark:bg-gray-600 overflow-hidden;
+  @apply rounded bg-gray-300 p-4 dark:bg-gray-600;
 }
 
 .kan-item-ghost {
