@@ -70,7 +70,7 @@
 }
 
 .kan-item-ghost {
-  @apply kan-item brightness-30;
+  @apply kan-item brightness-[.3];
 }
 
 .kan-col {
