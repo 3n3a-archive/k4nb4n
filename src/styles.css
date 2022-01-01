@@ -70,7 +70,7 @@
 }
 
 .kan-col {
-  @apply flex flex-col gap-3 h-[30vh] md:h-screen p-4 rounded-lg bg-gray-200 dark:bg-gray-700;
+  @apply flex flex-col gap-3 h-[30vh] md:h-screen overflow-y-scroll p-4 rounded-lg bg-gray-200 dark:bg-gray-700;
 }
 
 /* Styling for HTML Elements */
