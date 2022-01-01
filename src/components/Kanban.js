@@ -33,6 +33,8 @@ let Data = {
 
 let sortableOptions = {
     group: 'todos',
+    touchStartThreshold: 10, // in px
+    ghostClass: 'kan-item-ghost',
     animation: 100
 }
 

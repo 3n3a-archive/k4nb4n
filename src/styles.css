@@ -66,7 +66,11 @@
 }
 
 .kan-item {
-  @apply rounded bg-gray-300 p-4 dark:bg-gray-600;
+  @apply rounded bg-gray-300 p-4 dark:bg-gray-600 overflow-hidden;
+}
+
+.kan-item-ghost {
+  @apply kan-item blur-sm;
 }
 
 .kan-col {
