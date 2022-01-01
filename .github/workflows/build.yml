@@ -22,6 +22,7 @@ jobs:
       - name: Build Production
         working-directory: ./
         run: |
+          npm i -g npm@latest
           npm install
           npm run prod
           ls dist
