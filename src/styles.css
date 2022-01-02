@@ -8,11 +8,15 @@
 
 * {
   font-family: 'Roboto Mono', monospace;
-  @apply dark:bg-gray-800;
 }
 
 .app {
-  @apply mt-20 sm:mt-28 text-emerald-600 dark:text-white;
+  @apply mt-20 sm:mt-28 text-emerald-600 dark:text-white ;
+}
+
+.background {
+  z-index: -5;
+  @apply fixed inset-0 bg-white dark:bg-gray-800;
 }
 
 .main-container {
@@ -24,7 +28,7 @@
 }
 
 .header {
-  @apply py-4 fixed top-0 w-full shadow-md bg-white dark:bg-gray-800;
+  @apply py-4 fixed top-0 w-full shadow-md bg-white dark:bg-gray-800 dark:shadow-gray-700;
 }
 
 .navbar {
@@ -66,15 +70,61 @@
 }
 
 .kan-item {
-  @apply rounded bg-gray-300 p-4 dark:bg-gray-600;
+  @apply rounded shadow-md border-[1px] border-opacity-40 border-gray-500 dark:border-gray-400 bg-gray-300 p-4 dark:bg-gray-600;
 }
 
 .kan-item-ghost {
-  @apply kan-item brightness-[.3];
+  @apply kan-item brightness-[.5];
 }
 
 .kan-col {
-  @apply flex flex-col gap-3 h-[30vh] md:h-screen overflow-y-scroll p-4 rounded-lg bg-gray-200 dark:bg-gray-700;
+  @apply flex flex-col gap-3 h-[30vh] md:h-screen overflow-y-scroll shadow-lg p-4 rounded-lg bg-gray-200 dark:bg-gray-700;
+}
+
+/* Modal */
+
+.modal {
+  @apply fixed z-10 inset-0 overflow-y-auto bg-transparent;
+}
+
+.modal-background {
+  @apply fixed inset-0 bg-gray-500 bg-opacity-75 dark:bg-gray-400 dark:bg-opacity-75 transition-opacity;
+}
+
+.modal-container {
+  @apply inline-block align-bottom bg-white dark:bg-gray-600 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full;
+}
+
+.modal-inner-container {
+  @apply bg-white dark:bg-gray-600 px-4 pt-5 pb-4 sm:p-6 sm:pb-4;
+}
+
+.modal-icon {
+  @apply mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full sm:mx-0 sm:h-10 sm:w-10;
+}
+
+.modal-content {
+  @apply mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left;
+}
+
+.modal-title {
+  @apply text-lg leading-6 font-medium text-gray-900 dark:text-gray-200;
+}
+
+.modal-body {
+  @apply text-sm text-gray-500 dark:text-gray-300;
+}
+
+.btn-group {
+  @apply bg-gray-50 dark:bg-gray-800 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse;
+}
+
+.btn-action {
+  @apply w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2  text-base font-medium text-white  focus:outline-none focus:ring-2 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm;
+}
+
+.btn-cancel {
+  @apply mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 dark:border-gray-500 shadow-sm px-4 py-2 bg-white dark:bg-gray-600 text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm;
 }
 
 /* Styling for HTML Elements */
