@@ -5,27 +5,27 @@ import _ from "underscore"
 let Data = {
     todo: [
         {
-            name: 'Do this',
+            name: 'Implement detailed View',
             description: 'yeah but do like so'
         },
         {
-            name: 'Do this',
+            name: 'Add contact Form',
             description: 'yeah but do like so'
         },
         {
-            name: 'Do this',
+            name: 'Implement storage',
             description: 'yeah but do like so'
         }
     ],
     inpr: [
         {
-            name: 'Do that',
+            name: 'Development',
             description: 'yeah but do like so'
         }
     ],
     done: [
         {
-            name: 'Do x with y',
+            name: 'Initial  Structure plus components',
             description: 'yeah but do like so'
         }
     ]

@@ -23,6 +23,7 @@
     "webpack-dev-server": "^4.6.0"
   },
   "dependencies": {
+    "@tailwindcss/forms": "^0.4.0",
     "mithril": "^2.0.4",
     "sortablejs": "^1.14.0"
   }
