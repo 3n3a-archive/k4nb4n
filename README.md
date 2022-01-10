@@ -4,6 +4,8 @@
 
 ### Development Mode
 
+* [<kbd>Todo</kbd>](./TODO.md)
+
 ```sh
 npm run dev
 ```
