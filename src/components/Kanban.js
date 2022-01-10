@@ -112,7 +112,7 @@ function saveDataState() {
 function getDataState() {
     // let state = window.prompt("Enter state", "")
     if (localforage.length() > 0) {
-        return localforage.getItem('todo-data'))
+        return localforage.getItem('todo-data')
 
         // return JSON.parse(state)
     } else {
