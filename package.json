@@ -25,6 +25,7 @@
   "dependencies": {
     "@tailwindcss/forms": "^0.4.0",
     "mithril": "^2.0.4",
-    "sortablejs": "^1.14.0"
+    "sortablejs": "^1.14.0",
+    "localforage": "^1.10.0"
   }
 }
