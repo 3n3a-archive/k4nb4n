@@ -99,15 +99,20 @@ function moveTodoItem(evt) {
 }
 
 function saveDataState() {
-    localStorage.setItem('todo-data', JSON.stringify(Data))
+    localforage.setItem('todo-data',Data).then(
+    () => {
+        console.log("Saved Data!");
+    }
+    )
     // window.prompt("Copy this state", JSON.stringify(Data))
-    console.log("Saved Data!");
+
 }
 
 function getDataState() {
     // let state = window.prompt("Enter state", "")
-    if (localStorage.hasOwnProperty("todo-data")) {
-        return JSON.parse(localStorage.getItem('todo-data'))
+    if (localforage.length() > 0) {
+        return localforage.getItem('todo-data'))
+
         // return JSON.parse(state)
     } else {
         return SampleData
