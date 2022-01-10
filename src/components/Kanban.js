@@ -2,41 +2,18 @@ import m from "mithril"
 import Sortable from 'sortablejs';
 import _ from "underscore"
 
-let SampleData = {
+let Data = {
     todo: [
-        {
-            id: 1234,
-            name: 'Implement detailed View',
-            description: 'yeah but do like so'
-        },
-        {
-            id: 2345,
-            name: 'Add contact Form',
-            description: 'yeah but do like so'
-        },
-        {
-            id: 3456,
-            name: 'Implement storage',
-            description: 'yeah but do like so'
-        }
+
     ],
     inpr: [
-        {
-            id: 4567,
-            name: 'Development',
-            description: 'yeah but do like so'
-        }
+        
     ],
     done: [
-        {
-            id: 5678,
-            name: 'Initial  Structure plus components',
-            description: 'yeah but do like so'
-        }
+        
     ]
 }
-let Data = {}
-Data = getDataState()
+
 
 /**
  * Gets the current list from a Sortable's id
@@ -122,44 +99,36 @@ let sortableOptions = {
     onAdd: function (evt) {
         moveTodoItem(evt)
         saveDataState()
-        console.log(Data);
     },
-    store: {
-        /**
-		 * Get the order of elements. Called once during initialization.
-		 * @param   {Sortable}  sortable
-		 * @returns {Array}
-		 */
-		get: function (sortable) {
-			let order = localStorage.getItem(sortable.el.id);
-			return order ? order.split('|') : [];
-		},
-
-		/**
-		 * Save the order of elements. Called onEnd (when the item is dropped).
-		 * @param {Sortable}  sortable
-		 */
-		set: function (sortable) {
-			let order = sortable.toArray();
-			localStorage.setItem(sortable.el.id, order.join('|'));
-		}
-    }
+    // store: {
+    //     /**
+    //      * Get the order of elements. Called once during initialization.
+    //      * @param   {Sortable}  sortable
+    //      * @returns {Array}
+	// 	 */
+    //     get: function (sortable) {
+    //         let order = localStorage.getItem(sortable.el.id);
+	// 		return order ? order.split('|') : [];
+	// 	},
+        
+	// 	/**
+    //      * Save the order of elements. Called onEnd (when the item is dropped).
+    //      * @param {Sortable}  sortable
+	// 	 */
+    //     set: function (sortable) {
+    //         let order = sortable.toArray();
+	// 		localStorage.setItem(sortable.el.id, order.join('|'));
+	// 	}
+    // }
 }
 
-export let singleColumn = {
-    view: function(vnode) {
-        let list = _.get(Data, vnode.attrs.state)
-        let items = []
-        if (list.length > 0) {
-            items = list.map(function(item) {
-                if (item != null) {
-                    return m("li", {class: "kan-item", 'data-id': JSON.stringify(item)}, item.name)
-                }
-            })
-        } else {
-            items = null
-        }
-        
+let singleColumn = {
+    view: function(vnode) {  
+        let list = _.get(Data, vnode.attrs.state).map(function(item) {
+            if (item != null) {
+               return m("li", {class: "kan-item", 'data-id': JSON.stringify(item)}, item.name)
+            }
+        })
         return m("ul", {
             id: `items-${vnode.attrs.state}`,
             class: "kan-col",
@@ -167,15 +136,23 @@ export let singleColumn = {
                 let el = document.getElementById(e.attrs.id)
                 Sortable.create(el, sortableOptions)
             },
-        },
-        items
-        )
+        }, list)
     }
 }
-
+    
 export let Kanban = {
-    oncreate: function() {
-        // saveDataState()
+    oninit: function() {
+        m.request({
+            method: "GET",
+            url: "//localhost:8081/todos",
+        })
+        .then(function(result) {
+            result.forEach((e) => {
+                while (e.Category == "todo") {
+                    console.log(e.Name)
+                }
+            })
+        })
     },
     view: function(vnode) {
         return m("div", {class: "kan-board"}, [
