@@ -1,6 +1,7 @@
 import m from "mithril"
 import Sortable from 'sortablejs';
 import _ from "underscore"
+import * as localForage from "localforage";
 
 let SampleData = {
     todo: [
